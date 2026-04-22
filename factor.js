@@ -36,11 +36,15 @@ function factor(x) {
   }
   }
   for(b = 0; b < p.length; b++) {
-    out = out + p[b][0] + "<sup>" + p[b][1] + "</sup>" + " × ";
-  }
-  if(out.indexOf("×") == out.length - 2) {
-      
+    if(b < p.length - 1) {
+      out = out + p[b][0] + "<sup>" + p[b][1] + "</sup>" + " × ";
+    }
+    else {
+      out = out + p[b][0] + "<sup>" + p[b][1] + "</sup>";
+    }
   }
   if(out.includes("-(")) {
-      out = out + ")"
+      out = out + ")";
   }
+  return out;
+}
