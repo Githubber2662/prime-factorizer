@@ -1,18 +1,10 @@
 var x = BigInt("1");
 var y = BigInt("1");
 var z = 0;
+var a = false;
+var b = 0;
 var p = [];
 var end = ""
-function findCoordinate(in2dArray, searchValue){
-    for(let x = 0; x < in2dArray[0].length; x++){
-        for(let y = 0; y < in2dArray.length; y++){
-            if(in2dArray[y][x] === searchValue){
-                return {x, y};
-            }
-        }
-    }
-    return null;
-}
 function factor(x) {
   if(x === BigInt("0")) {
     return undefined;
@@ -28,13 +20,27 @@ function factor(x) {
     x = x * BigInt("-1");
   }
   for(y = BigInt("2"); y * y <= x; y = y + BigInt("1")) {
+     a = false;
      while(x % y === BigInt("0")) {
+     a = true;
        if(p === []) {
          p = [[y, BigInt("1")]];
        }
        else {
          p[z][1] = p[z][1] + 1;
+         x = x / y;
        }
   }
-  z++;
-}
+  if(a) {
+    z++;
+  }
+  }
+  for(b = 0; b < p.length; b++) {
+    out = out + p[b][0] + "<sup>" + p[b][1] + "</sup>" + " × ";
+  }
+  if(out.indexOf("×") == out.length - 2) {
+      
+  }
+  if(out.includes("-(")) {
+      out = out + ")"
+  }
