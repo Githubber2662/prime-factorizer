@@ -7,15 +7,15 @@ var p = [];
 var out = "";
 function factor(x) {
   if(x === BigInt("0")) {
-    document.getElementById("output") = undefined;
+    document.getElementById("output").innerHTML = undefined;
     return undefined;
   }
   if(x === BigInt("1")) {
-    document.getElementById("output") = "(empty product)";
+    document.getElementById("output").innerHTML = "(empty product)";
     return "(empty product)";
   }
   if(x === BigInt("-1")) {
-    document.getElementById("output") = "-(empty product)";
+    document.getElementById("output").innerHTML = "-(empty product)";
     return "-(empty product)";
   }
   if(x < BigInt("0")) {
@@ -49,6 +49,6 @@ function factor(x) {
   if(out.includes("-(")) {
       out = out + ")";
   }
-  document.getElementById("output") = out;
+  document.getElementById("output").innerHTML = out;
   return out;
 }
