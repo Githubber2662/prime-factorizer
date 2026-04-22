@@ -4,19 +4,22 @@ var z = 0;
 var a = false;
 var b = 0;
 var p = [];
-var end = ""
+var out = "";
 function factor(x) {
   if(x === BigInt("0")) {
+    document.getElementById("output") = undefined;
     return undefined;
   }
   if(x === BigInt("1")) {
+    document.getElementById("output") = "(empty product)";
     return "(empty product)";
   }
   if(x === BigInt("-1")) {
+    document.getElementById("output") = "-(empty product)";
     return "-(empty product)";
   }
   if(x < BigInt("0")) {
-    end = "-(";
+    out = "-(";
     x = x * BigInt("-1");
   }
   for(y = BigInt("2"); y * y <= x; y = y + BigInt("1")) {
@@ -46,5 +49,6 @@ function factor(x) {
   if(out.includes("-(")) {
       out = out + ")";
   }
+  document.getElementById("output") = out;
   return out;
 }
