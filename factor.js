@@ -6,6 +6,7 @@ var b = 0;
 var p = [];
 var out = "";
 function factor(x) {
+  p = [];
   z = 0;
   if(x === BigInt("0")) {
     document.getElementById("output").innerHTML = undefined;
