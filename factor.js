@@ -35,7 +35,7 @@ function factor(x) {
          if(p.length <= z) {
             p.push([y, 1n]);
        } else {
-        p[z][1] = p[z][1] + 1n;
+        p[z-1][1] = p[z-1][1] + 1n;
          x = x / y;
          }
        }
