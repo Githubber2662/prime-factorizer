@@ -10,7 +10,7 @@ function factor(x) {
   p = [];
   f = [];
   z = 0;
-  document.getElementById("output).innerHTML = "";
+  document.getElementById("output").innerHTML = "";
   if(x === 0n) {
     document.getElementById("output").innerHTML = undefined;
     return undefined;
