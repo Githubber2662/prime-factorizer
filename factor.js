@@ -3,10 +3,13 @@ var y = 1n;
 var z = 0;
 var a = false;
 var b = 0;
+var c = [];
 var p = [];
 var out = "";
 function factor(x) {
   p = [];
+  c = [];
+  c = false;
   z = 0;
   if(x === 0n) {
     document.getElementById("output").innerHTML = undefined;
@@ -40,16 +43,25 @@ function factor(x) {
          }
        }
   }
+  p[z][1] = p[z][1] - 1n;
   if(a) {
     z++;
+    c.push(y);
   }
+  }
+  if(x > 1 && !c.includes(x)) {
+    p.push([x, 1n]);
   }
   for(b = 0; b < p.length; b++) {
     if(b < p.length - 1) {
+      if(p[b][1] > 0) {
       out = out + p[b][0] + "<sup>" + p[b][1] + "</sup>" + " × ";
+      }
     }
     else {
+      if(p[b][1] > 0) {
       out = out + p[b][0] + "<sup>" + p[b][1] + "</sup>";
+    }
     }
   }
   if(out.includes("-(")) {
