@@ -46,7 +46,7 @@ function factor(x) {
   p[z][1] = p[z][1] - 1n;
   if(a) {
     z++;
-    if(f !== [];) {
+    if(f !== []) {
     f.push(y);
     }
     else {
