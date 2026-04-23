@@ -1,5 +1,5 @@
-var x = BigInt("1");
-var y = BigInt("1");
+var x = 1n;
+var y = 1n;
 var z = 0;
 var a = false;
 var b = 0;
@@ -8,32 +8,36 @@ var out = "";
 function factor(x) {
   p = [];
   z = 0;
-  if(x === BigInt("0")) {
+  if(x === 0n) {
     document.getElementById("output").innerHTML = undefined;
     return undefined;
   }
-  if(x === BigInt("1")) {
+  if(x === 1n) {
     document.getElementById("output").innerHTML = "(empty product)";
     return "(empty product)";
   }
-  if(x === BigInt("-1")) {
+  if(x === -1n) {
     document.getElementById("output").innerHTML = "-(empty product)";
     return "-(empty product)";
   }
-  if(x < BigInt("0")) {
+  if(x < 0n) {
     out = "-(";
-    x = x * BigInt("-1");
+    x = x * -1n;
   }
-  for(y = BigInt("2"); y * y <= x; y = y + BigInt("1")) {
+  for(y = 2n; y * y <= x; y = y + 1n) {
      a = false;
      while(x % y === BigInt("0")) {
      a = true;
        if(p === []) {
-         p = [[y, BigInt("1")]];
+         p = [[y, 1n]];
        }
        else {
-         p[z][1] = p[z][1] + BigInt("1");
+         if(p.length <= z) {
+            p = p.push([y, 1n]);
+       } else {
+        p[z][1] = p[z][1] + 1n;
          x = x / y;
+         }
        }
   }
   if(a) {
