@@ -30,7 +30,7 @@ function factor(x) {
          p = [[y, BigInt("1")]];
        }
        else {
-         p[z][1] = p[z][1] + 1;
+         p[z][1] = p[z][1] + BigInt("1");
          x = x / y;
        }
   }
